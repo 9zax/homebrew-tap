@@ -2,7 +2,7 @@ class AeasyDisplay < Formula
   desc "Android phone as a second display for your Mac, over USB-C or Wi-Fi"
   homepage "https://github.com/9zax/aeasy-display"
   url "https://github.com/9zax/aeasy-display/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "a622aea04c6f434f582441943af978a5c7702729ddd901a6bdb83ef5c1834223"
+  sha256 "1a662deee7fdfc53797e8a2372a0787013c70892ec3a682359c19f9cbfb34fbe"
   license "MIT"
 
   depends_on :macos
