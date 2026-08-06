@@ -1,0 +1,37 @@
+name: repin-checksums
+# GitHub's auto-generated tag tarballs are not byte-stable; when their bytes
+# change, the pinned sha256 in a formula goes stale and brew install fails.
+# This re-downloads every url in every formula and re-pins drifted checksums.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * *"
+permissions:
+  contents: write
+jobs:
+  repin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: re-pin stale sha256s
+        run: |
+          set -euo pipefail
+          for f in Formula/*.rb; do
+            # each url "" line is followed by its sha256 "" line, so paste pairs them
+            paste <(sed -n 's/.*url "\([^"]*\)".*/\1/p' "$f") \
+                  <(sed -n 's/.*sha256 "\([^"]*\)".*/\1/p' "$f") |
+            while IFS=$'\t' read -r url old; do
+              new=$(curl -fsSL "$url" | sha256sum | cut -d' ' -f1)
+              if [ "$new" != "$old" ]; then
+                sed -i "s/$old/$new/" "$f"
+                echo "REPIN $f: $url"
+                echo "  $old -> $new"
+              fi
+            done
+          done
+          if ! git diff --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -am "repin stale sha256 (auto)"
+            git push
+          fi
