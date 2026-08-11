@@ -1,6 +1,6 @@
 cask "wakekit" do
-  version "0.2.0"
-  sha256 "f8413524babe2046babc03306172af2b0cdc40cc04198bee92caf25e28871f8e"
+  version "0.2.1"
+  sha256 "00e6ff74882db879ca5057bb98494d64b7c24eb8e543febef8ea6ffd514f1b08"
 
   url "https://github.com/9zax/wakekit/releases/download/app-v#{version}/WakeKit-#{version}-aarch64.zip"
   name "WakeKit"
@@ -20,6 +20,11 @@ cask "wakekit" do
     Speech Recognition. The app lives in the menu bar (flower icon):
     green = listening, red = stopped. Pick your input device under
     Microphone in the tray menu if your system default is a virtual device.
+
+    Dictation is Apple's: a Mac that has never dictated Thai needs it turned
+    on once, with ไทย in its languages, under
+    System Settings > Keyboard > Dictation. Without it the wake word still
+    fires but nothing is transcribed.
   EOS
 
   zap trash: [
