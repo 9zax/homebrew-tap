@@ -1,6 +1,6 @@
 cask "wakekit" do
-  version "0.2.1"
-  sha256 "00e6ff74882db879ca5057bb98494d64b7c24eb8e543febef8ea6ffd514f1b08"
+  version "0.2.2"
+  sha256 "025cfa7fa85ad886f8efbff29abe512b03c01ce8935f9af2c1ade41a22f0ac24"
 
   url "https://github.com/9zax/wakekit/releases/download/app-v#{version}/WakeKit-#{version}-aarch64.zip"
   name "WakeKit"
