@@ -1,8 +1,8 @@
 cask "wakekit" do
-  version "0.1.0"
-  sha256 "fce9c969a3ec763efc4859c2c2e4ce401556fc2b13cbc707a50b9938470f6a59"
+  version "0.2.0"
+  sha256 "f8413524babe2046babc03306172af2b0cdc40cc04198bee92caf25e28871f8e"
 
-  url "https://github.com/9zax/wakekit/releases/download/v#{version}/WakeKit-#{version}-aarch64.zip"
+  url "https://github.com/9zax/wakekit/releases/download/app-v#{version}/WakeKit-#{version}-aarch64.zip"
   name "WakeKit"
   desc "Menu-bar voice assistant demo: Thai wake words, dictation, and voice commands"
   homepage "https://github.com/9zax/wakekit"
